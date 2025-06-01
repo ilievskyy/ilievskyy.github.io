@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Filip Ilievski – Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Roboto+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Reset and base */
+      * {
+        box-sizing: border-box;
+      }
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: #0a0a0a;
+        font-family: "Roboto Mono", monospace;
+        overflow-x: hidden;
+        color: #e0f7fa;
+      }
+
+      /* Background canvas styling */
+      #particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        background: linear-gradient(135deg, #020617, #0a0a0a);
+      }
+
+      /* Hero section styling */
+      section.hero {
+        position: relative;
+        z-index: 10;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 10vh 2rem 6rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 100vh;
+        user-select: none;
+      }
+
+      /* Name */
+      h1 {
+        font-family: "Orbitron", sans-serif;
+        font-weight: 800;
+        font-size: 4.5rem;
+        margin: 0;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #00e5ff;
+        text-shadow: 0 0 2px #00e5ff, 0 0 4px #00e5ff, 0 0 6px #00e5ff,
+          0 0 8px #00e5ff;
+        animation: glowPulse 6s ease-in-out infinite;
+      }
+
+      /* Tagline - single line with shimmer */
+      .tagline {
+        font-family: "Orbitron", sans-serif;
+        font-weight: 600;
+        font-size: 1.5rem;
+        margin: 1rem 0 2rem;
+        white-space: normal;
+        color: #00bcd4;
+        position: relative;
+        overflow: hidden;
+        letter-spacing: 0.08em;
+        user-select: text;
+      }
+      .tagline::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -70%;
+        width: 70%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.4),
+          transparent
+        );
+        animation: shimmer 3s linear infinite;
+        pointer-events: none;
+      }
+
+      /* Description - justified with soft line height */
+      .description {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        max-width: 700px;
+        margin: 0 auto 3rem auto;
+        text-align: justify;
+        color: #b0eaf9;
+        user-select: text;
+        text-shadow: 0 0 5px rgba(0, 229, 255, 0.6);
+      }
+
+      /* Buttons container */
+      .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1.8rem;
+        flex-wrap: wrap;
+      }
+
+      /* Buttons */
+      .btn {
+        font-family: "Orbitron", sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        padding: 0.8rem 2rem;
+        border-radius: 30px;
+        border: 2px solid #00e5ff;
+        color: #00e5ff;
+        background: transparent;
+        box-shadow: 0 0 8px #00e5ff, inset 0 0 8px #00e5ff;
+        cursor: pointer;
+        transition: all 0.4s ease;
+        text-transform: uppercase;
+        user-select: none;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        white-space: nowrap;
+      }
+      .btn:hover,
+      .btn:focus {
+        background: #00e5ff;
+        color: #0a0a0a;
+        box-shadow: 0 0 18px #00e5ff, inset 0 0 18px #00e5ff;
+        transform: scale(1.07);
+        outline: none;
+      }
+
+      /* Animations */
+      @keyframes glowPulse {
+        0%,
+        100% {
+          text-shadow: 0 0 2px #00e5ff, 0 0 4px #00e5ff, 0 0 6px #00e5ff,
+            0 0 8px #00e5ff;
+        }
+        50% {
+          text-shadow: 0 0 3px #00e5ff, 0 0 6px #00e5ff, 0 0 9px #00e5ff,
+            0 0 12px #00e5ff;
+        }
+      }
+
+      @keyframes shimmer {
+        0% {
+          left: -70%;
+        }
+        100% {
+          left: 110%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="particles"></canvas>
+
+    <section class="hero" aria-label="Introduction">
+      <div class="intro">
+        <h1>Filip Ilievski</h1>
+        <p class="tagline">
+          Full-Stack Developer • UI/UX Architect <br />
+          • Visual Storyteller • Creative Coder
+        </p>
+        <p class="description">
+          I'm Filip – passionate about crafting intuitive, seamless digital
+          experiences. I blend aesthetics with functionality to design
+          user-centered interfaces, bring ideas to life through code, and
+          explore storytelling through multimedia. Skilled in both frontend and
+          backend development, I love building end-to-end solutions that are not
+          only visually striking but technically robust.
+        </p>
+        <div class="buttons">
+          <a href="uiux.html" class="btn" role="button">UI/UX Projects</a>
+          <a href="photography.html" class="btn" role="button"
+            >Photography &amp; Video</a
+          >
+          <a
+            href="cv/Filip_Ilievski_CV.pdf"
+            download
+            class="btn resume"
+            role="button"
+            >Download Resume</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Particles canvas animation - simple floating dots with delayed start
+      const canvas = document.getElementById("particles");
+      const ctx = canvas.getContext("2d");
+      let width, height;
+      let particlesArray = [];
+      const particleCount = 80;
+
+      function initCanvas() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+      }
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.size = Math.random() * 2 + 1;
+          this.speedX = (Math.random() - 0.5) * 0.6;
+          this.speedY = (Math.random() - 0.5) * 0.6;
+          this.opacity = 0;
+          this.maxOpacity = 0.6;
+          this.opacitySpeed = 0.008;
+        }
+
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+
+          if (this.x < 0 || this.x > width) this.speedX *= -1;
+          if (this.y < 0 || this.y > height) this.speedY *= -1;
+
+          // Fade in effect
+          if (this.opacity < this.maxOpacity) {
+            this.opacity += this.opacitySpeed;
+          }
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(0, 229, 255, ${this.opacity})`;
+          ctx.shadowColor = `rgba(0, 229, 255, ${this.opacity})`;
+          ctx.shadowBlur = 6;
+          ctx.fill();
+        }
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        particlesArray.forEach((particle) => {
+          particle.update();
+          particle.draw();
+        });
+        requestAnimationFrame(animate);
+      }
+
+      function startParticles() {
+        particlesArray = [];
+        for (let i = 0; i < particleCount; i++) {
+          particlesArray.push(new Particle());
+        }
+        animate();
+      }
+
+      window.addEventListener("resize", () => {
+        initCanvas();
+      });
+
+      // Initialize canvas size
+      initCanvas();
+
+      // Delay particle start by 3 seconds
+      setTimeout(startParticles, 3000);
+    </script>
+  </body>
+</html>
